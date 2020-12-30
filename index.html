@@ -7,37 +7,41 @@
 </head>
 <body>
     <div id="app">
-        <h2>{{person.name}} -- {{person.age}}</h2>
-        <h3>{{person.fav}}</h3>
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-        <h3>{{msg}}</h3>
-        <div v-text="msg"></div>
-        <div v-text="person.name"></div>
-        <div v-html="htmlStr"></div>
-        <input type="text" v-model="msg" name="" id="">
-        <button v-on:click="handleClick">按钮-on</button>
-        <button @click="handleClick">按钮-@</button>
+        <h2 class="aaa" style="">{{person.name}} -- {{person.age}}</h2>
+        <h3 class="ccc" style="">{{msg}}</h3>
+        <div class="ddd" style="" v-text="msg"></div>
+        <div class="eee1" style="" v-text="person.fav"></div>
+        <div class="eee2" style="" v-text="person.name"></div>
+        <div class="fff1" style="" v-html="htmlStr"></div>
+        <div class="fff2" style="" v-html="test.htmlStr"></div>
+        <input class="ggg" style="" type="text" v-model="msg" name="" id="">
+        <button class="hhh" style="" v-on:click="handleClick">按钮-on</button>
+        <button class="iii" style="" @click="handleClick">按钮-@</button>
     </div>
-    <script src="vue.js"></script>
+    <script src="myvue/dep.js"></script>
+    <script src="myvue/watcher.js"></script>
+    <script src="myvue/observer.js"></script>
+    <script src="myvue/compile.js"></script>
+    <script src="myvue/index.js"></script>
     <script>
         let vm = new Vue({
             el: "#app",
             data: {
                 person: {
-                    name: 'mok',
-                    age: 18,
-                    fav: 'girl'
+                    name: 'person-mok',
+                    age: 'person-18',
+                    fav: 'person-girl'
                 },
-                msg: 'msg',
-                htmlStr: 'htmlStr'
+                msg: 'msg-text',
+                htmlStr: '<span>html-htmlStr</span>',
+                test: {
+                    htmlStr: '<h1>test.htmlStr</h1>'
+                }
             },
             methods: {
                 handleClick () {
-                    console.log(this.$data.msg)
+                    console.log(this)
+                    console.log(this.person)
                 }
             }
         })
