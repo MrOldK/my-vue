@@ -15,8 +15,8 @@
         <div class="fff1" style="" v-html="htmlStr"></div>
         <div class="fff2" style="" v-html="test.htmlStr"></div>
         <input class="ggg" style="" type="text" v-model="msg" name="" id="">
-        <button class="hhh" style="" v-on:click="handleClick">按钮-on</button>
-        <button class="iii" style="" @click="handleClick">按钮-@</button>
+        <button class="hhh" style="" v-on:click="handleClickOn">按钮-on</button>
+        <button class="iii" style="" @click="handleClickAt">按钮-@</button>
     </div>
     <script src="myvue/dep.js"></script>
     <script src="myvue/watcher.js"></script>
@@ -39,9 +39,16 @@
                 }
             },
             methods: {
-                handleClick () {
-                    console.log(this)
-                    console.log(this.person)
+                handleClickOn () {
+                    this.msg = 'click改变了msg的值'
+                    this.htmlStr = 'click改变了htmlStr的值'
+                    this.test.htmlStr = 'click改变了test.htmlStr的值'
+                },
+
+                handleClickAt () {
+                    this.msg = 'msg-text'
+                    this.htmlStr = '<span>html-htmlStr</span>'
+                    this.test.htmlStr = '<h1>test.htmlStr</h1>'
                 }
             }
         })

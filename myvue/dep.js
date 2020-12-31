@@ -11,7 +11,7 @@ class Dep {
 
     // 通知观察者，也就是让观察者去更新视图
     notify () {
-        console.log('观察者', this.subs)
+        // console.log('观察者', this.subs)
         this.subs.forEach((watcher) => {
             watcher.update()
         })

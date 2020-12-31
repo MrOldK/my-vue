@@ -19,6 +19,9 @@ class Watcher {
     // 对比数据差异，更新视图
     update () {
         const newVal = this.getNewVal(this.expr, this.vm)
+        console.log('===')
+        console.log(newVal)
+        console.log(this.oldVal)
         if (newVal !== this.oldVal) {
             this.cb(newVal)
         }
